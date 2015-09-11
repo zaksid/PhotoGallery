@@ -92,22 +92,6 @@ public class FlickrFetcher {
         return items;
     }
 
-    private int getPagesCount(XmlPullParser parser)
-            throws XmlPullParserException, IOException {
-        int eventType = parser.next();
-        int pages = 1;
-
-        while (eventType != XmlPullParser.END_DOCUMENT) {
-            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("photos")) {
-                pages = Integer.parseInt(parser.getAttributeValue(null, "pages"));
-            }
-
-            eventType = parser.next();
-        }
-
-        return pages;
-    }
-
     void parseItems(ArrayList<GalleryItem> items, XmlPullParser parser)
             throws XmlPullParserException, IOException {
         int eventType = parser.next();
@@ -127,6 +111,22 @@ public class FlickrFetcher {
 
             eventType = parser.next();
         }
+    }
+
+    private int getPagesCount(XmlPullParser parser)
+            throws XmlPullParserException, IOException {
+        int eventType = parser.next();
+        int pages = 1;
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("photos")) {
+                pages = Integer.parseInt(parser.getAttributeValue(null, "pages"));
+            }
+
+            eventType = parser.next();
+        }
+
+        return pages;
     }
 
 }
