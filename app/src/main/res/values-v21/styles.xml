@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="AppTheme" parent="@android:style/Theme.Material">
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+    </style>
+
+    <color name="primary_dark">#303F9F</color>
+    <color name="primary">#3F51B5</color>
+    <color name="accent">#E91E63</color>
+    <color name="window_background">#E91E63</color>
+    <color name="navigation_bar">@android:color/transparent</color>
+</resources>
