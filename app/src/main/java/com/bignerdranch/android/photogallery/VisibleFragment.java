@@ -10,7 +10,6 @@ import android.util.Log;
 
 /**
  * Created by alexander on 9/18/15.
- *
  */
 public class VisibleFragment extends Fragment {
 
