@@ -5,7 +5,9 @@ import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -63,6 +66,19 @@ public class PhotoGalleryFragment extends VisibleFragment {
         View view = inflater.inflate(R.layout.fragment_photo_gallery, parent, false);
         gridView = (GridView) view.findViewById(R.id.gridView);
         setupAdapter();
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                GalleryItem item = items.get(position);
+
+                Uri photoPageUri = Uri.parse(item.getPhotoPageUrl());
+                Intent intent = new Intent(getActivity(), PhotoPageActivity.class);
+                intent.setData(photoPageUri);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
